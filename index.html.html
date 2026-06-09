@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Archives MMORPG Francophones - Xeloom</title>
+<style>
+body{font-family:Tahoma,Arial,sans-serif;background:#dfe3ea;margin:0}
+header{background:#3f5f8f;color:white;padding:14px 20px}
+.wrap{max-width:1200px;margin:auto;padding:15px}
+.topic{background:white;border:1px solid #b5bcc8;padding:12px;margin-bottom:10px}
+.post{display:flex;background:white;border:1px solid #b5bcc8;margin:10px 0}
+.profile{width:210px;background:#eef2f7;padding:10px;border-right:1px solid #c5ccd7}
+.avatar{width:80px;height:80px;border-radius:8px;background:#6887b7;color:white;
+display:flex;align-items:center;justify-content:center;font-size:36px}
+.content{flex:1;padding:12px}
+.meta{font-size:12px;color:#666}
+.quote{background:#f2f6fb;border-left:4px solid #5579ad;padding:8px;margin:8px 0}
+.sig{font-size:11px;color:#666;border-top:1px dashed #bbb;margin-top:10px;padding-top:5px}
+.pages{text-align:center;margin:15px}
+.pages button{padding:8px 12px;margin:2px}
+.dark{background:#1e2329;color:#eee}
+.dark .topic,.dark .post{background:#2b3138;color:#eee}
+.dark .profile{background:#343b45}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<header>
+<h2>Archives MMORPG Francophones</h2>
+</header>
+<div class="wrap">
+<button onclick="document.body.classList.toggle('dark')">Thème sombre/clair</button>
+<div class="topic">
+<h2>Les légendes oubliées de Pouchecot : Xeloom</h2>
+<p>Discussion nostalgique • Période évoquée : 2006-2014</p>
+</div>
+<div id="container"></div>
+<div class="pages" id="pages"></div>
+</div>
+<script>
+const data=[
+[
+["Nostalgique-2009","🕰️","12 541 messages","Je me demandais si j'étais le seul à me souvenir de Xeloom d'Alternative. Entre Grobe, Skype et Asblaz, il revenait toujours dans les discussions."],
+["Tartaric","⚔️","8 231 messages","Les gens oublient à quel point il était présent. Même quand on parlait de Dot Hack ou Paiks and Saiks, son nom finissait par revenir."],
+["GhostOfGrobe","👻","4 988 messages","À Grobe il faisait quasiment partie du décor."]
+],
+[
+["HistorienDuServeur","📜","15 002 messages","Pour les nouveaux : Lake était souvent considéré comme le plus fort du serveur. Masterofpuppets menait Dot Hack. Mais Xeloom restait l'un des personnages les plus connus."],
+["Latomatekiller","🔥","7 001 messages","On parle du Xélor mais Asblaz grade 10 en 2014 faisait peur à beaucoup de monde."],
+["Scredman-Ans","🎤","6 222 messages","Et les débats Skype... légendaires."]
+],
+[
+["Quicksilver","💎","3 421 messages","Je me souviens surtout des soirées où tout le monde débattait de qui dominait vraiment Pouchecot."],
+["Yutte","🎭","5 100 messages","Alternative avait toujours quelque chose à raconter."],
+["AncienAlternative","🛡️","2 310 messages","Les nuits d'XP à Grobe étaient interminables."]
+],
+[
+["PouchecotForever","🏰","9 882 messages","Top 10 des joueurs marquants ? Xeloom y est sans problème."],
+["VieuxSram","🗡️","11 201 messages","Il pouvait participer à trois discussions à la fois. Je ne sais toujours pas comment."],
+["Modération","🛡️","Staff","Sujet étonnamment calme pour un sujet sur Xeloom."]
+],
+[
+["DernierTemoin","📘","1 245 messages","Des joueurs forts il y en a eu beaucoup. Des joueurs dont tout le monde a une anecdote, beaucoup moins."],
+["HistorienDuServeur","📜","15 002 messages","C'est probablement pour cela qu'on parle encore de lui aujourd'hui."],
+["Nostalgique-2009","🕰️","12 541 messages","Merci pour les souvenirs de Pouchecot."]
+]
+];
+function render(p){
+ let h='';
+ data[p].forEach(x=>{
+ h+=`<div class="post">
+ <div class="profile">
+ <div class="avatar">${x[1]}</div>
+ <b>${x[0]}</b><br>
+ <small>${x[2]}</small><br><br>
+ Guilde évoquée: Alternative
+ </div>
+ <div class="content">
+ <div class="meta">Posté en archive • 👍 ${Math.floor(Math.random()*40+10)}</div>
+ <p>${x[3]}</p>
+ <div class="sig">Pouchecot 2006-2014 • Signature nostalgique</div>
+ </div></div>`;
+ });
+ document.getElementById('container').innerHTML=h;
+ let phtml='';
+ for(let i=0;i<data.length;i++) phtml+=`<button onclick="render(${i})">Page ${i+1}</button>`;
+ document.getElementById('pages').innerHTML=phtml;
+}
+render(0);
+</script>
+</body>
+</html>
